@@ -14,13 +14,7 @@
 
     {{- /* Meta */ -}}
     <div class="post-meta">
-        {{- $author := .Params.author | default .Site.Author.name -}}
-        {{- $author_link := .Params.author_link | default .Site.Author.link | default .Site.BaseURL -}}
-        <a class="author" href="{{ $author_link }}" rel="author" target="_blank">
-            <i class="fas fa-user-circle fa-fw"></i>{{ $author }}
-        </a>
-
-        {{- $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}}
+        {{- $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "January 02, 2006") -}}
         {{ T "publish" }}  <time datetime={{ $publish_date }}>{{ $publish_date }}</time>&nbsp;
 
         {{- with .Params.categories -}}
