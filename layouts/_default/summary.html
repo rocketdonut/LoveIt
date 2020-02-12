@@ -14,7 +14,7 @@
 
     {{- /* Meta */ -}}
     <div class="post-meta">
-        {{- $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "01-02-2006") -}}
+        {{- $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "January 02, 2006") -}}
         {{ T "publish" }}  <time datetime={{ $publish_date }}>{{ $publish_date }}</time>&nbsp;
 
         {{- with .Params.categories -}}
