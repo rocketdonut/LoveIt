@@ -7,6 +7,7 @@
 
         {{- /* Meta */ -}}
         <div class="post-meta">
+<<<<<<< HEAD
             <div class="post-meta-line">
                 {{- $author := .Params.author | default .Site.Author.name -}}
                 {{- $authorLink := .Params.authorLink | default .Site.Author.link | default (relLangURL "/") -}}
@@ -18,6 +19,12 @@
 
                 {{- with .Params.categories -}}
                     &nbsp;<span class="post-category">
+=======
+            <div class="post-meta-main">
+                &nbsp;
+                {{- with .Params.categories -}}
+                    <span class="post-category">
+>>>>>>> develop
                         {{- T "included" -}}
                         {{- range . -}}
                             &nbsp;
@@ -30,8 +37,13 @@
                     </span>
                 {{- end -}}
             </div>
+<<<<<<< HEAD
             <div class="post-meta-line">
                 {{- $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}}
+=======
+            <div class="post-meta-other">
+                {{- $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "January 2, 2006") -}}
+>>>>>>> develop
                 <i class="far fa-calendar-alt fa-fw"></i><time datetime={{ $publish_date }}>{{ $publish_date }}</time>&nbsp;
                 <i class="fas fa-pencil-alt fa-fw"></i>{{ T "wordCount" .WordCount }}&nbsp;
                 <i class="far fa-clock fa-fw"></i>{{ T "readingTime" .ReadingTime }}&nbsp;
