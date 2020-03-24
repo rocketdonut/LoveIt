@@ -18,6 +18,7 @@ enableGitInfo = true
 # whether to use emoji code
 # 是否使用 emoji 代码
 enableEmoji = true
+<<<<<<< HEAD
 
 [languages]
   [languages.en]
@@ -464,6 +465,7 @@ enableEmoji = true
           width = "100%"
           numPosts = 10
           appId = ""
+<<<<<<< HEAD
           languageCode = "zh_CN"
 
   [languages.fr]
@@ -818,6 +820,19 @@ enableEmoji = true
     gitalkJS = ''
     # valine@1.3.10 https://valine.js.org/
     valineJS = ''
+=======
+          languageCode = "en_US"
+=======
+# whether to use robots.txt
+enableRobotsTXT = true
+# [UA-XXXXXXXX-X] google analytics code
+googleAnalytics = ""
+# copyright description used only for seo schema
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+# date format
+dateFormatToUse = "January 02, 2006"
+>>>>>>> develop
+>>>>>>> master
 
 # Markup related configuration in Hugo
 # Hugo 解析文档的配置
