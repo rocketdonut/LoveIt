@@ -2,12 +2,13 @@
   display: block;
   position: absolute;
   width: 100%;
+  max-width: 1000px;
   margin-left: 1000px;
   padding: 0 .8rem;
   border-left: 1px solid $global-border-color;
   overflow-wrap: break-word;
   box-sizing: border-box;
-  top: if($header-normal-mode-desktop, 7rem, 12rem);
+  top: if($header-normal-mode-desktop, 5rem, 10rem);
 
   .dark-theme & {
     border-left: 1px solid $global-border-color-dark;
@@ -79,22 +80,27 @@
 
   details {
     summary {
+      list-style: none;
+      background: darken($code-background-color, 3%);
+
+      .dark-theme & {
+        background: darken($code-background-color-dark, 3%);
+      }
+
       .toc-title {
         display: block;
         display: flex;
         justify-content: space-between;
-        font-size: 1.2em;
         font-weight: bold;
         line-height: 2em;
         padding: 0 .625rem;
-        background: $code-background-color;
 
         i.details {
           line-height: 2em;
         }
 
-        .dark-theme & {
-          background: $code-background-color-dark;
+        &:hover {
+          cursor: pointer;
         }
       }
 
@@ -111,14 +117,14 @@
   }
 
   .toc-content {
-    border: 2px solid $code-background-color;
+    background-color: $code-background-color;
 
-    >nav>ul {
-      margin: .625rem 0;
+    > nav > ul {
+      margin: 0;
+      padding: .4rem .8rem;
     }
 
     ul {
-      padding-left: .625rem;
       list-style: none;
 
       ul {
@@ -127,12 +133,20 @@
     }
 
     .dark-theme & {
-      border: 2px solid $code-background-color-dark;
+      background-color: $code-background-color-dark;
     }
   }
 }
 
 .toc {
+  .toc-title {
+    font-size: $toc-title-font-size;
+  }
+
+  .toc-content {
+    font-size: $toc-content-font-size;
+  }
+
   ruby {
     background: $code-background-color;
 

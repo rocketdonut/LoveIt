@@ -18,6 +18,10 @@ featuredImagePreview: ""
 toc: false
 autoCollapseToc: true
 math: false
+lightgallery: true
+linkToMarkdown: true
+share:
+  enable: true
 comment: true
 ---
 
