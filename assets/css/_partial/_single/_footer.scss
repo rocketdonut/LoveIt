@@ -20,6 +20,22 @@
         .dark-theme & {
           color: $global-font-secondary-color-dark;
         }
+
+        a {
+          color: $single-link-color;
+
+          .dark-theme & {
+            color: $single-link-color-dark;
+          }
+
+          &:hover {
+            color: $single-link-hover-color;
+
+            .dark-theme & {
+              color: $single-link-hover-color-dark;
+            }
+          }
+        }
       }
 
       .post-info-license {
@@ -32,10 +48,10 @@
       }
 
       .post-info-md {
+        font-size: 0.8rem;
         width: 8rem;
 
         a {
-          font-size: 0.8rem;
           color: $single-link-color;
 
           .dark-theme & {
@@ -72,10 +88,10 @@
     & a.next {
       font-size: 1rem;
       font-weight: 600;
-
-      transition-duration: .3s;
-      transition-property: transform;
-      transition-timing-function: ease-out;
+      -webkit-transition: all ease-out .3s;
+      -moz-transition: all ease-out .3s;
+      -o-transition: all ease-out .3s;
+      transition: all ease-out .3s;
     }
 
     & a.prev {
@@ -83,6 +99,10 @@
     }
 
     & a.prev:hover {
+      -webkit-transform: translateX(-4px);
+      -moz-transform: translateX(-4px);
+      -ms-transform: translateX(-4px);
+      -o-transform: translateX(-4px);
       transform: translateX(-4px);
     }
 
@@ -91,6 +111,10 @@
     }
 
     & a.next:hover {
+      -webkit-transform: translateX(4px);
+      -moz-transform: translateX(4px);
+      -ms-transform: translateX(4px);
+      -o-transform: translateX(4px);
       transform: translateX(4px);
     }
   }

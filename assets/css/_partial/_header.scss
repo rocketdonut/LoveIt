@@ -6,6 +6,36 @@ header {
   .dark-theme & {
     background-color: $header-background-color-dark;
   }
+
+  .header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu .menu-item {
+    position: relative;
+  }
+
+  .language-select {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .theme-switch i {
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    transform: rotate(225deg);
+  }
 }
 
 #header-desktop {
@@ -17,23 +47,20 @@ header {
   .header-wrapper {
     width: auto;
     text-align: center;
-    margin: 0 4rem;
+    padding: 0 3rem;
     display: flex;
     justify-content: space-between;
 
-    .header-title a {
-      padding: 0 8px;
-      font-size: 1.25rem;
+    .menu {
+      .menu-item {
+        margin: 0 .5rem;
 
-      i {
-        line-height: 2rem;
+        &.theme-switch {
+          margin: 0 .3rem;
+        }
       }
-    }
 
-    .menu a {
-      padding: 0 8px;
-
-      &.active {
+      a.active {
         font-weight: 900;
         color: $header-hover-color;
 
@@ -66,10 +93,6 @@ header {
       padding-left: 1rem;
       box-sizing: border-box;
 
-      .header-title {
-        font-size: 1.25rem;
-      }
-
       .menu-toggle {
         cursor: pointer;
         line-height: 4rem;
@@ -84,6 +107,7 @@ header {
           border-radius: 3px;
           -webkit-transition: .1s margin .1s, .1s transform;
           -moz-transition: .1s margin .1s, .1s transform;
+          -o-transition: .1s margin .1s, .1s transform;
           transition: .1s margin .1s, .1s transform;
 
           .dark-theme & {
@@ -103,13 +127,15 @@ header {
           span {
             -webkit-transition: .1s margin, .1s transform .1s;
             -moz-transition: .1s margin, .1s transform .1s;
+            -o-transition: .1s margin, .1s transform .1s;
             transition: .1s margin, .1s transform .1s;
           }
 
           span:nth-child(1) {
+            -webkit-transform: rotate(45deg) translate(.4rem, .5rem);
             -moz-transform: rotate(45deg) translate(.4rem, .5rem);
             -ms-transform: rotate(45deg) translate(.4rem, .5rem);
-            -webkit-transform: rotate(45deg) translate(.4rem, .5rem);
+            -o-transform: rotate(45deg) translate(.4rem, .5rem);
             transform: rotate(45deg) translate(.4rem, .5rem);
           }
 
@@ -121,6 +147,7 @@ header {
             -moz-transform: rotate(-45deg) translate(.4rem, -.5rem);
             -ms-transform: rotate(-45deg) translate(.4rem, -.5rem);
             -webkit-transform: rotate(-45deg) translate(.4rem, -.5rem);
+            -o-transform: rotate(-45deg) translate(.4rem, -.5rem);
             transform: rotate(-45deg) translate(.4rem, -.5rem);
           }
         }

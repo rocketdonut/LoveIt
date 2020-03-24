@@ -1,19 +1,29 @@
+{{- $scratch := .Scratch.Get "scratch" -}}
+
 <article class="single summary" itemscope itemtype="http://schema.org/Article">
     {{- /* Featured image */ -}}
     {{- with .Params.featuredImage -}}
         <div class="featured-image-preview">
             {{- $image := $.Params.featuredImagePreview | default . -}}
-            {{- partial "plugin/image.html" (dict "src" $image "alt" "featured image") -}}
+            {{- partial "plugin/image.html" (dict "src" $image "description" $.Description "scratch" $scratch) -}}
         </div>
     {{- end -}}
 
     {{- /* Title */ -}}
     <h1 class="single-title" itemprop="name headline">
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h1>
 
     {{- /* Meta */ -}}
     <div class="post-meta">
+<<<<<<< HEAD
+        {{- $author := .Params.author | default .Site.Author.name | default (T "author") -}}
+        {{- $authorLink := .Params.authorLink | default .Site.Author.link | default (relLangURL "/") -}}
+        <span class="post-author">
+            {{- $link := dict "class" "author" "href" $authorLink "title" "Author" "rel" "author" "icon" (dict "class" "fas fa-user-circle fa-fw") "content" $author -}}
+            {{- partial "plugin/link.html" $link -}}
+        </span>
+=======
 <<<<<<< HEAD
         {{- $author := .Params.author | default .Site.Author.name -}}
         {{- $authorLink := .Params.authorLink | default .Site.Author.link | default (relLangURL "/") -}}
@@ -22,6 +32,7 @@
                 <i class="fas fa-user-circle fa-fw"></i>{{ $author }}
             </a>
         </<span>
+>>>>>>> master
 
         {{- $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}}
         &nbsp;<span class="post-publish">
@@ -33,15 +44,14 @@
 >>>>>>> develop
 
         {{- with .Params.categories -}}
-            &nbsp;<span class="post-category">
+            &nbsp;
+            <span class="post-category">
                 {{- T "included" -}}
-                {{- range . -}}
-                    &nbsp;
-                    <span>
-                        <a href="{{ `/categories/` | relLangURL }}{{ urlize .}}">
-                            <i class="far fa-folder fa-fw"></i>{{ . | humanize }}
-                        </a>
-                    </span>
+                {{- range $index, $value := . -}}
+                    {{- if gt $index 0 }}&nbsp;{{ end -}}
+                    <a href="{{ `/categories/` | relLangURL }}{{ urlize $value }}">
+                        <i class="far fa-folder fa-fw"></i>{{ $value | humanize }}
+                    </a>
                 {{- end -}}
             </span>
         {{- end -}}
@@ -58,15 +68,13 @@
 
     {{- /* Footer */ -}}
     <div class="post-footer">
-        <a href="{{ .Permalink }}">{{ T "readMore" }}</a>
+        <a href="{{ .RelPermalink }}">{{ T "readMore" }}</a>
         {{- with .Params.tags -}}
             <div class="post-tags">
-                {{- range . -}}
-                    &nbsp;<span>
-                        <a href="{{ `/tags/` | relLangURL }}{{ urlize .}}">
-                            <i class="fas fa-tag fa-fw"></i>{{ . }}
-                        </a>
-                    </span>
+                <i class="fas fa-tags fa-fw"></i>&nbsp;
+                {{- range $index, $value := . -}}
+                    {{- if gt $index 0 }},&nbsp;{{ end -}}
+                    <a href="{{ `/tags/` | relLangURL }}{{ urlize $value }}">{{ $value }}</a>
                 {{- end -}}
             </div>
         {{- end -}}

@@ -5,6 +5,10 @@
   .home {
     @if $profile {
       .home-profile {
+        -webkit-transform: translateY(if($posts, 0, 16vh));
+        -moz-transform: translateY(if($posts, 0, 16vh));
+        -ms-transform: translateY(if($posts, 0, 16vh));
+        -o-transform: translateY(if($posts, 0, 16vh));
         transform: translateY(if($posts, 0, 16vh));
         padding: if($posts, 2rem, 0) 0;
         text-align: center;
@@ -47,15 +51,16 @@
         }
 
         .home-social-links {
-          padding-top: .6rem;
+          padding: .6rem 0;
 
-          i {
-            font-size: 1.45rem;
+          a, i {
+            font-size: 1.6rem;
+            line-height: 2rem;
           }
 
           img {
-            width: 1.5rem;
-            height: 1.5rem;
+            height: 1.4rem;
+            padding: 0 .25rem;
           }
         }
       }
